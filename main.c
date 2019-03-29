@@ -28,18 +28,18 @@ int main( int argc, char* args[] )
             return 1;//something's wrong
 
     }
+    writeSDL(&myGame,mFont);
     myMusique = Mix_LoadMUS("./Assets/son/Silent Hill Promise Extended.wav");
     while(state.g_bRunning){
-        handleEvents(&state);
+        handleEvents(&state,&myGame,&mFont);
         if (myBool == 0){
-            writeSDL(&myGame,mFont);
             MainScreen(&myGame,state);
             Mix_PlayMusic(myMusique, 1);
             myBool = 1;
         }
         if (state.g_bRunning == 2){
             if (myBool2==0){
-                printf("Test");
+                printf("Scene 2");
                 myBool2 = 1;
                 Scene1(&myGame,state);
             }
@@ -48,10 +48,6 @@ int main( int argc, char* args[] )
 
     }
 	//Destroy window
-	Mix_FreeChunk(myMusique);
-	destroy(&myGame);
-	destroyFont(&mFont);
-
 	//Quit SDL subsystems
 	TTF_Quit();
 	SDL_Quit();
@@ -110,12 +106,52 @@ int init(char *title, int xpos,int ypos,int height, int width,int flags,game *my
 
 }
 
-void handleEvents(gameState *state){
+int Text(game *myGame,font *mFont, char ctext[])
+{
+
+    printf("%s\n",ctext);
+    if(TTF_Init() == -1)
+    {
+        fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
+
+    mFont->g_font=TTF_OpenFont("./Fonts/Matilda.ttf",25);
+
+    if(!mFont->g_font) {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        SDL_Delay(5000);
+        exit(EXIT_FAILURE);
+    }
+
+     SDL_Color fontColor={255,255,255};
+     myGame->g_surface=TTF_RenderText_Blended(mFont->g_font, ctext, fontColor);//Charge la police
+    //Définition du rectangle dest pour blitter la chaine
+    SDL_Rect rectangle;
+
+    rectangle.x=0;//debut x
+    rectangle.y=50;//debut y
+    rectangle.w=600; //Largeur
+    rectangle.h=25; //Hauteur
+
+    myGame->g_texture = SDL_CreateTextureFromSurface(myGame->g_pRenderer,myGame->g_surface); // Préparation de la texture pour la chaine
+    // Libération de la ressource occupée par le sprite
+    if(!myGame->g_surface)
+        SDL_FreeSurface(myGame->g_surface);
 
 
-    game myGame;
+    if(myGame->g_texture){
+        SDL_RenderCopy(myGame->g_pRenderer,myGame->g_texture,NULL,&rectangle); // Copie du sprite grâce au SDL_Renderer
+        SDL_RenderPresent(myGame->g_pRenderer); // Affichage
+                        //TODO out of memory sdl texture
+                 }
+    return 1;
+
+}
+
+void handleEvents(gameState *state,game *myGame,font *mFont){
+
     SDL_Event event;
-    BOOL ismainscren=true;
 
     if(SDL_PollEvent(&event)){
         switch(event.type){
@@ -124,21 +160,40 @@ void handleEvents(gameState *state){
         case SDL_KEYDOWN:
                         switch (event.key.keysym.sym)
                             {
-                                case SDLK_LEFT: printf("Left\n") ; break;
-                                case SDLK_RIGHT: printf("right\n"); break;
-                                case SDLK_UP: printf("up\n")   ; break;
-                                case SDLK_DOWN:printf("down\n")  ; break;
+                                case SDLK_ESCAPE: state->g_bRunning = 0  ; break;
                                 case SDLK_SPACE:state->g_bRunning = 2;break;
-
                             }
                             break;
-
-
-        default:break;
+    SDL_WaitEvent(&event);
 
         }
     }
+    switch(event.type)
+    {
+        case SDL_QUIT: state->g_bRunning=0;break;
+        case SDL_MOUSEBUTTONUP:
+            if ((event.button.button == SDL_BUTTON_LEFT) && (state->g_bRunning==2)){
+                SDL_WaitEvent(&event);
+                printf("\nSourie en X : %d\n",event.button.x);
+                printf("Sourie en Y : %d\n",event.button.y);
 
+                if(((event.button.x > 290 ) && (event.button.x < 423))&& ((event.button.y > 304)&&(event.button.y <496))){
+                    char ctext[] = "La porte de ma chambre.... ";
+                    printf("Clik sur la porte ! \n");
+                    //Text(myGame,mFont,ctext);
+
+                }
+
+                if(((event.button.x > 563 ) && (event.button.x < 788))&& ((event.button.y > 415)&&(event.button.y <501))){
+                    char ctext[] = "Mon Lit....";
+                    printf("Clik sur le lit ! \n");
+                    //Text(myGame,mFont,ctext);
+
+                }
+            }
+    break;
+
+}
 
 }
 void MainScreen(game *myGame,gameState state){
@@ -148,26 +203,12 @@ void MainScreen(game *myGame,gameState state){
 
         if (state.g_bRunning==1){
             myGame->g_surface = IMG_Load("./Assets/main.png");//Chargement de l'image png
-            printf("1");
-        }
-
-        if (state.g_bRunning==2){
-                myGame->g_surface = IMG_Load("./Assets/meme.png");//Chargement de l'image png
-            printf("2");
+            printf("Ecran titre\n");
         }
 
 
 
-        if(!myGame->g_surface) {
-            fprintf(stdout,"IMG_Load: %s\n", IMG_GetError());
-            // handle error
-        }
 
-        if(myGame->g_surface==2) {
-
-            fprintf(stdout,"IMG_Load: %s\n", IMG_GetError());
-            // handle error
-        }
         if(myGame->g_surface){
 
 
@@ -223,24 +264,11 @@ void Scene1(game *myGame,gameState state){
 
         SDL_Rect rectangleDest;
         SDL_Rect rectangleSource;
-
         if (state.g_bRunning==2){
-            myGame->g_surface = IMG_Load("./Assets/meme.png");//Chargement de l'image png
-            printf("2");
+            myGame->g_surface = IMG_Load("./Assets/scene1.png");//Chargement de l'image png
         }
 
 
-
-        if(!myGame->g_surface) {
-            fprintf(stdout,"IMG_Load: %s\n", IMG_GetError());
-            // handle error
-        }
-
-        if(myGame->g_surface==2) {
-
-            fprintf(stdout,"IMG_Load: %s\n", IMG_GetError());
-            // handle error
-        }
         if(myGame->g_surface){
 
 
@@ -250,7 +278,7 @@ void Scene1(game *myGame,gameState state){
                 if(myGame->g_texture){
 
                     rectangleSource.x=0;
-                    rectangleSource.y=-200;
+                    rectangleSource.y=-0;
                     rectangleSource.w=800;//1 image = w:128 et h:82
                     rectangleSource.h=500;
 
@@ -266,7 +294,6 @@ void Scene1(game *myGame,gameState state){
 
 
                     //SDL_FLIP_NONE
-                    //SDL_FLIP_HORIZONTAL
                     //SDL_FLIP_VERTICAL
 
 
@@ -330,7 +357,7 @@ void writeSDL(game *myGame,font mFont) {
             fprintf(stdout,"Échec de creation surface pour chaine (%s)\n",SDL_GetError());
         }
 
-        destroyTexture(myGame);
+        //destroyTexture(myGame);
 
 
 }
