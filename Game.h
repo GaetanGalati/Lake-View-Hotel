@@ -37,21 +37,41 @@ typedef struct coordonnees{
 
 }coordonnees;
 
-typedef enum BOOL{true,false}BOOL;
+typedef enum BOOL{true=1,false=0,InHead=-1}BOOL;
+
+typedef struct Inventory{
+
+    BOOL GoldKey201;
+    BOOL SilverKeyCouloir;
+    BOOL gasoline ;
+    BOOL lighter;
+    BOOL Salt;
+    BOOL reception_Key;
+
+}Inventory;
+
+typedef struct Document{
+
+    BOOL Doc1;
+    BOOL Doc2;
+    BOOL Doc3 ;
+    BOOL Doc4;
+    BOOL Doc5;
+    BOOL Doc6;
+
+}Document;
+FILE* fopen(const char* save, const char* a);
+char* fgets(char* chaine, int nbreDeCaracteresALire, FILE* pointeurSurFichier);
+extern void SaveGame(FILE* save,gameState *state,game *myGame,Document Doc[], Inventory Inventaire[]);
+extern void loadGame(FILE* save,gameState *state,game *myGame,Document Doc[], Inventory Inventaire[]);
+extern int init(char *title, int xpos,int ypos,int height, int width,int flags,game *myGame,font *mFont);
+extern int Text(game *myGame,font *mFont, char ctext[200]);
+extern void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire[],Document doc[], int *savesate,int *nNote);
+extern void writeSDL(game *myGame,font mFont);
+extern int Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize);
 
 
-int init(char *title, int xpos,int ypos,int height, int width,int flags,game *myGame,font *mFont);
-int Text(game *myGame,font *mFont, char ctext[200]);
-void handleEvents(gameState *state,game *myGame,font *mFont);
-void MainScreen(game *myGame,gameState state);
-void Scene1(game *myGame,gameState state);
-void writeSDL(game *myGame,font mFont);
-int Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize);
-void destroyTexture(game *myGame);
-void destroyFont(font *mFont);
-void destroy(game *myGame);
 
-//Screen dimension constants
 
 
 #endif // GAME_H_INCLUDED

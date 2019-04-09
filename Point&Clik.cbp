@@ -47,7 +47,21 @@
 			<Add directory="SDL/SDL2_ttf-2.0.12/i686-w64-mingw32/lib" />
 			<Add directory="SDL/SDL2_mixer-2.0.0/i686-w64-mingw32/lib" />
 		</Linker>
+		<Unit filename="Destroy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Destroy.h" />
 		<Unit filename="Game.h" />
+		<Unit filename="Initialisation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Scene.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Scene.h" />
+		<Unit filename="Write.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

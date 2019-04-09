@@ -7,7 +7,7 @@
 #include <SDL_mixer.h>
 #include <stdio.h>
 #include "Game.h"
-
+#include "Destroy.h"
 void destroy(game *myGame){
 
     //Destroy render
@@ -34,6 +34,5 @@ void destroyTexture(game *myGame){
     //Destroy texture
     if(myGame->g_texture!=NULL)
             SDL_DestroyTexture(myGame->g_texture);
-
 
 }
