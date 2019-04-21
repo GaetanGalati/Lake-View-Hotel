@@ -376,7 +376,7 @@
 
 1554190134 c:\users\utilisateur\desktop\codesdl\lake-view-hotel\destroy.h
 
-1554802510 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\initialisation.c
+1555885395 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\initialisation.c
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -386,7 +386,7 @@
 	<stdio.h>
 	"Game.h"
 
-1554819011 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\main.c
+1555885161 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\main.c
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -397,9 +397,19 @@
 	"Game.h"
 	"Scene.h"
 
-1554818559 c:\users\utilisateur\desktop\codesdl\lake-view-hotel\scene.h
+1555883019 c:\users\utilisateur\desktop\codesdl\lake-view-hotel\scene.h
 
-1554818581 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\scene.c
+1555885071 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\save&load.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	<stdio.h>
+	"Game.h"
+
+1555885242 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\scene.c
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -411,17 +421,7 @@
 	"Scene.h"
 	"Destroy.h"
 
-1554802641 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\write.c
-	<stdio.h>
-	<stdlib.h>
-	<SDL.h>
-	<SDL_image.h>
-	<SDL_ttf.h>
-	<SDL_mixer.h>
-	<stdio.h>
-	"Game.h"
-
-1554815869 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\save&load.c
+1555885395 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\write.c
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>

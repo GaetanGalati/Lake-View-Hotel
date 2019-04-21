@@ -13,7 +13,6 @@ void writeSDL(game *myGame,font mFont) {
         if(myGame->g_surface){
 
 
-                //Définition du rectangle dest pour blitter la chaine
                 SDL_Rect rectangle;
                 rectangle.x=SCREEN_WIDTH/2-300;//debut x
                 rectangle.y=0;//debut y
@@ -31,7 +30,6 @@ void writeSDL(game *myGame,font mFont) {
 
                         SDL_RenderCopy(myGame->g_pRenderer,myGame->g_texture,NULL,&rectangle); // Copie du sprite grâce au SDL_Renderer
                         SDL_RenderPresent(myGame->g_pRenderer); // Affichage
-                        //TODO out of memory sdl texture
                  }
                  else{
                         fprintf(stdout,"Échec de création de la texture (%s)\n",SDL_GetError());
@@ -69,7 +67,6 @@ int Text(game *myGame,font *mFont, char ctext[])
 
      SDL_Color fontColor={255,255,255};
      myGame->g_surface=TTF_RenderText_Blended(mFont->g_font, ctext, fontColor);//Charge la police
-    //Définition du rectangle dest pour blitter la chaine
     SDL_Rect rectangle;
 
     rectangle.x=0;//debut x

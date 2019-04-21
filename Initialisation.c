@@ -15,9 +15,9 @@ int init(char *title, int xpos,int ypos,int height, int width,int flags,game *my
 
     if(SDL_Init(SDL_INIT_EVERYTHING)>=0)
     {
-            //if succeeded create our window
+            //creation de la fenetre
             myGame->g_pWindow=SDL_CreateWindow(title,xpos,ypos,height,width,flags);
-            //if succeeded create window, create our render
+            //creation render
             if(myGame->g_pWindow!=NULL){
                 myGame->g_pRenderer=SDL_CreateRenderer(myGame->g_pWindow,-1,SDL_RENDERER_ACCELERATED);
 
