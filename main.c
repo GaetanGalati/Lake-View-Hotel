@@ -9,13 +9,13 @@
 #include "Game.h"
 #include "Scene.h"
 //8634
-//Utilisant de variable globalle pour évité qu'elle soit supprimer a chaque itération, se tableau repprésente le code a entrée par le joueur, une fois saisie ils dois étre sauvegarder pour ne pas que le joueur est a le réecrire a ,ouveau
+//Utilisant de variable globalle pour Ã©vitÃ© qu'elle soit supprimer a chaque itÃ©ration, se tableau repprÃ©sente le code a entrÃ©e par le joueur, une fois saisie ils dois Ã©tre sauvegarder pour ne pas que le joueur est a le rÃ©ecrire a ,ouveau
 
 int main( int argc, char* args[]){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Description :  Le main va vérifié via une boucle While l'état du jeu
+//Description :  Le main va vÃ©rifiÃ© via une boucle While l'Ã©tat du jeu
 //
-//Entrées : argc et args
+//EntrÃ©es : argc et args
 //
 //Sortie : Lancement d'une des fonction de scene
 //
@@ -65,7 +65,7 @@ int main( int argc, char* args[]){
     myMusique = Mix_LoadMUS("./Assets/son/Silent Hill Promise Extended.wav");
 
     while(state.g_bRunning != 0){
-        handleEvents(&state,&myGame,&mFont,inventaire,Doc,&savesate,&nNote,&code);
+        handleEvents(&state,&myGame,&mFont,inventaire,Doc,&savesate,&nNote,code);
         if (myBool == 0 && state.g_bRunning ==1){
             MainScreen(&myGame,state);
             Mix_PlayMusic(myMusique, 1);
@@ -219,9 +219,9 @@ int main( int argc, char* args[]){
 	return 0;
 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Description :  Tres grosse procédure principal qui va géré les event, en foncton de la touche appuiez ou de l'endroit où l'ont clique, mais également en fonction de l'inventaire
+//Description :  Tres grosse procÃ©dure principal qui va gÃ©rÃ© les event, en foncton de la touche appuiez ou de l'endroit oÃ¹ l'ont clique, mais Ã©galement en fonction de l'inventaire
 //
-//Entrées : l'état du jeu, l'inventaire, les document
+//EntrÃ©es : l'Ã©tat du jeu, l'inventaire, les document
 //
 //Sortie : Lancement d'une des fonction de scene
 //
@@ -271,13 +271,13 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                         {
                             case SDLK_a: {
                                             if (IsMenuActive == false && state->g_bRunning > 1){
-                                                *savesate = state->g_bRunning;//Vue que l'état va changer, sauvegarde de l'etat dans une variable tempo
+                                                *savesate = state->g_bRunning;//Vue que l'Ã©tat va changer, sauvegarde de l'etat dans une variable tempo
                                                 state->g_bRunning = -1;
                                                 IsMenuActive = true;//Ouverture de l'inventaire
                                                 SDL_WaitEvent(&event);
                                             }else
                                             if (IsMenuActive == true && state->g_bRunning < 1){
-                                                state->g_bRunning = *savesate;//Fin de l'activation du menu, l'état reprend sa valeur précedente
+                                                state->g_bRunning = *savesate;//Fin de l'activation du menu, l'Ã©tat reprend sa valeur prÃ©cedente
                                                 IsMenuActive = false;//Fermeuture
                                                 SDL_WaitEvent(&event);
                                             }
@@ -332,14 +332,14 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                     SDL_RenderClear(myGame->g_pRenderer);
                 }
                 if(((event.button.x > 95 ) && (event.button.x < 240))&& ((event.button.y > 273)&&(event.button.y <421))&& (inventaire[1].GoldKey201 == true)){
-                    char ctext[] = "Une clé en or, elle peut être utile";
+                    char ctext[] = "Une clÃ© en or, elle peut Ãªtre utile";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1500);
                     SDL_RenderClear(myGame->g_pRenderer);
                 }
 
                 if(((event.button.x > 325 ) && (event.button.x < 467))&& ((event.button.y > 273)&&(event.button.y <421))&& (inventaire[1].SilverKeyCouloir == true)){
-                    char ctext[] = "Une clé en argent, il y a écrit 'couloir'" ;
+                    char ctext[] = "Une clÃ© en argent, il y a Ã©crit 'couloir'" ;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1500);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -352,7 +352,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 }
 
                 if(((event.button.x > 576 ) && (event.button.x < 721))&& ((event.button.y > 273)&&(event.button.y <421))&& (inventaire[1].lighter == true)){
-                    char ctext[] = "Un vieux briquet, avec écrit 'Lake View Hotel'";
+                    char ctext[] = "Un vieux briquet, avec Ã©crit 'Lake View Hotel'";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1500);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -365,7 +365,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 }
 
                 if(((event.button.x > 94 ) && (event.button.x < 237))&& ((event.button.y > 438)&&(event.button.y <585))&& (inventaire[1].gasoline == true)){
-                    char ctext[] = "De l'éscence... De quoi faire un beau feu";
+                    char ctext[] = "De l'Ã©scence... De quoi faire un beau feu";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1500);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -378,7 +378,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 }
 
                 if(((event.button.x > 325 ) && (event.button.x < 467))&& ((event.button.y > 438)&&(event.button.y <585))&& (inventaire[1].reception_Key  == true)){
-                    char ctext[] = "Les clées de certaine chambre...";
+                    char ctext[] = "Les clÃ©es de certaine chambre...";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1500);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -545,13 +545,13 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 state->g_bRunning = 5;
             }
             if(((event.button.x > 130 ) && (event.button.x < 280))&& ((event.button.y > 278)&&(event.button.y <460)) && inventaire[1].reception_Key == false ){
-                    char ctext[] = "Cettes porte semble fermer a clés....";
+                    char ctext[] = "Cettes porte semble fermer a clÃ©s....";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
             }
             if(((event.button.x > 500 ) && (event.button.x < 789))&& ((event.button.y > 196)&&(event.button.y <324)) && inventaire[1].reception_Key == false ){
-                    char ctext[] = "Cette porte semble fermée a clés....";
+                    char ctext[] = "Cette porte semble fermÃ©e a clÃ©s....";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -591,14 +591,14 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             }
 
             if(((event.button.x > 330 ) && (event.button.x < 430))&& ((event.button.y > 357)&&(event.button.y <468)) && inventaire[1].reception_Key == false ){
-                char ctext[] = "Voici des clées... Je pourais ouvire des chambres avec !";
+                char ctext[] = "Voici des clÃ©es... Je pourais ouvire des chambres avec !";
                 Text(myGame,mFont,ctext);
                 inventaire[1].reception_Key = true;
                 SDL_Delay(1000);
                 SDL_RenderClear(myGame->g_pRenderer);
             }
             else if(((event.button.x > 330 ) && (event.button.x < 430))&& ((event.button.y > 357)&&(event.button.y <468) && inventaire[1].reception_Key == true)){
-                char ctext[] = "Il n'y a plus aucune clées ";
+                char ctext[] = "Il n'y a plus aucune clÃ©es ";
                 Text(myGame,mFont,ctext);
                 SDL_Delay(1000);
                 SDL_RenderClear(myGame->g_pRenderer);
@@ -648,20 +648,20 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             printf("Sourie en Y : %d\n",event.button.y);
 
             if(((event.button.x > 191 ) && (event.button.x < 287))&& ((event.button.y > 264)&&(event.button.y <312)) && inventaire[1].lighter == false){
-                    char ctext[] = "Il y a des briquets avec écrit lake view hôtel, j'en prend un !";
+                    char ctext[] = "Il y a des briquets avec Ã©crit lake view hÃ´tel, j'en prend un !";
                     inventaire[1].lighter=true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
             }
             else if(((event.button.x > 191 ) && (event.button.x < 287))&& ((event.button.y > 264)&&(event.button.y <312)) && inventaire[1].lighter == true){
-                    char ctext[] = "Il y a des briquets avec écrit lake view hôtel, j'en est déja un !";
+                    char ctext[] = "Il y a des briquets avec Ã©crit lake view hÃ´tel, j'en est dÃ©ja un !";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
             }
             if(((event.button.x > 569 ) && (event.button.x < 709))&& ((event.button.y > 178)&&(event.button.y <232))){
-                    char ctext[] = "Des Boulles à neiges ... ";
+                    char ctext[] = "Des Boulles Ã  neiges ... ";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -696,7 +696,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                     SDL_RenderClear(myGame->g_pRenderer);
             }
             if(((event.button.x > 542 ) && (event.button.x < 565))&& ((event.button.y > 450)&&(event.button.y <473)) && doc[1].Doc1 == false ){
-                    char ctext[] = "Il y a un papier déchirer, il y a des trucs écrits dessus (note 1) ";
+                    char ctext[] = "Il y a un papier dÃ©chirer, il y a des trucs Ã©crits dessus (note 1) ";
                     doc[1].Doc1 = true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
@@ -728,7 +728,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             }
 
             if(((event.button.x > 284 ) && (event.button.x < 460))&& ((event.button.y > 300)&&(event.button.y <430))){
-                    char ctext[] = "Je sors pour arrivé dans une ville envahie par la brume, je marche un moment et suis revenus sur mes pas !";
+                    char ctext[] = "Je sors pour arrivÃ© dans une ville envahie par la brume, je marche un moment et suis revenus sur mes pas !";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(2000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -747,7 +747,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             }
 
             if(((event.button.x > 260 ) && (event.button.x < 320))&& ((event.button.y > 457)&&(event.button.y <514)) && doc[1].Doc5 == false ){
-                    char ctext[] = "Il y a un papier déchirer, il y a des trucs écrits dessus (note 5)";
+                    char ctext[] = "Il y a un papier dÃ©chirer, il y a des trucs Ã©crits dessus (note 5)";
                     doc[1].Doc5 = true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
@@ -767,7 +767,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             }
 
             if(((event.button.x > 61 ) && (event.button.x < 181))&& ((event.button.y > 300)&&(event.button.y <500)) && inventaire[1].SilverKeyCouloir == false){
-                    char ctext[] = "La porte est fermer a clé...";
+                    char ctext[] = "La porte est fermer a clÃ©...";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -837,13 +837,13 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 state->g_bRunning = 11;
             }
             if(((event.button.x > 14 ) && (event.button.x < 240))&& ((event.button.y > 303)&&(event.button.y <590))){
-                    char ctext[] = "de nombreuses armoires contenant des denrées alimentaires en conserve";
+                    char ctext[] = "de nombreuses armoires contenant des denrÃ©es alimentaires en conserve";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1500);
                     SDL_RenderClear(myGame->g_pRenderer);
             }
             if(((event.button.x > 352 ) && (event.button.x < 466))&& ((event.button.y > 400)&&(event.button.y <490)) && inventaire[1].GoldKey201 == false){
-                    char ctext[] = "Il y a une clé en or, avec écrit 201...";
+                    char ctext[] = "Il y a une clÃ© en or, avec Ã©crit 201...";
                     inventaire[1].GoldKey201 = true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
@@ -861,14 +861,14 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 state->g_bRunning = 11;
             }
             if(((event.button.x > 390 ) && (event.button.x < 458))&& ((event.button.y > 414)&&(event.button.y <482)) && doc[1].Doc3 == false ){
-                    char ctext[] = "Il y a une note, il y a des trucs écrits dessus (note 3)";
+                    char ctext[] = "Il y a une note, il y a des trucs Ã©crits dessus (note 3)";
                     doc[1].Doc3 = true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
             }
             if(((event.button.x > 70 ) && (event.button.x < 149))&& ((event.button.y > 322)&&(event.button.y <410)) && inventaire[1].SilverKeyCouloir == false){
-                    char ctext[] = "Il y a une clé en argent, avec écrit couloir...";
+                    char ctext[] = "Il y a une clÃ© en argent, avec Ã©crit couloir...";
                     inventaire[1].SilverKeyCouloir = true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
@@ -887,7 +887,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             }
 
             if(((event.button.x > 392 ) && (event.button.x < 452))&& ((event.button.y > 411)&&(event.button.y <500))&& doc[1].Doc6 == false){
-                 char ctext[] = "Il y a un livre étrange (note 6)";
+                 char ctext[] = "Il y a un livre Ã©trange (note 6)";
                     doc[1].Doc6 = true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
@@ -918,7 +918,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 printf("%d",state->g_bRunning);
             }else
             if (((event.button.x > 35 ) && (event.button.x < 113))&& ((event.button.y > 425)&&(event.button.y <600))&& inventaire[1].reception_Key == false){
-                    char ctext[] = "La porte est fermée....";
+                    char ctext[] = "La porte est fermÃ©e....";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -929,7 +929,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 printf("%d",state->g_bRunning);
             }else
             if(((event.button.x > 135 ) && (event.button.x < 213))&& ((event.button.y > 327)&&(event.button.y <515))&& inventaire[1].reception_Key == false){
-                    char ctext[] = "La porte est fermée....";
+                    char ctext[] = "La porte est fermÃ©e....";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -939,7 +939,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 state->g_bRunning = 21;
                 printf("%d",state->g_bRunning);
             }else if(((event.button.x > 229 ) && (event.button.x < 300))&& ((event.button.y > 250)&&(event.button.y <448))&& inventaire[1].reception_Key == false){
-                    char ctext[] = "La porte est fermée....";
+                    char ctext[] = "La porte est fermÃ©e....";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -950,7 +950,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 state->g_bRunning = 22;
                 printf("%d",state->g_bRunning);
             }else if(((event.button.x > 605 ) && (event.button.x < 728))&& ((event.button.y > 390)&&(event.button.y <570))&& inventaire[1].reception_Key == false){
-                    char ctext[] = "La porte est fermée....";
+                    char ctext[] = "La porte est fermÃ©e....";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -964,7 +964,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             }
 
             if(((event.button.x > 356 ) && (event.button.x < 444))&& ((event.button.y > 212)&&(event.button.y <340)) && inventaire[1].GoldKey201 == false ){
-                    char ctext[] = "Une porte... Elle est fermée à clé, c'est étrange j'entends des bruits à l'intérieur";
+                    char ctext[] = "Une porte... Elle est fermÃ©e Ã  clÃ©, c'est Ã©trange j'entends des bruits Ã  l'intÃ©rieur";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -1079,7 +1079,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 state->g_bRunning = 16;
             }
             if(((event.button.x > 390 ) && (event.button.x < 466))&& ((event.button.y > 350)&&(event.button.y <448))&& inventaire[1].gasoline == false){
-                    char ctext[] = "De l'essence... Quelqu’un voulait mettre le feu ?";
+                    char ctext[] = "De l'essence... QuelquÂ’un voulait mettre le feu ?";
                     inventaire[1].gasoline = true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(2000);
@@ -1105,7 +1105,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
 
             }else
             if(((event.button.x > 351 ) && (event.button.x < 614))&& ((event.button.y > 431)&&(event.button.y <600))){
-                char ctext[] = "C'est étrange je me sens tellement mal ici...  ";
+                char ctext[] = "C'est Ã©trange je me sens tellement mal ici...  ";
                 Text(myGame,mFont,ctext);
                 SDL_Delay(1000);
                 SDL_RenderClear(myGame->g_pRenderer);
