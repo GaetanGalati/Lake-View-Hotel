@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include "Game.h"
 #include "Scene.h"
-int code[4] = {0,0,0,0};//8634
+//8634
 //Utilisant de variable globalle pour évité qu'elle soit supprimer a chaque itération, se tableau repprésente le code a entrée par le joueur, une fois saisie ils dois étre sauvegarder pour ne pas que le joueur est a le réecrire a ,ouveau
 
 int main( int argc, char* args[]){
@@ -23,7 +23,7 @@ int main( int argc, char* args[]){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     game myGame;
     gameState state;
-
+    int code[4] = {0,0,0,0};
     int savesate = 0;
     int nNote=0;
     font mFont;
@@ -65,7 +65,7 @@ int main( int argc, char* args[]){
     myMusique = Mix_LoadMUS("./Assets/son/Silent Hill Promise Extended.wav");
 
     while(state.g_bRunning != 0){
-        handleEvents(&state,&myGame,&mFont,inventaire,Doc,&savesate,&nNote);
+        handleEvents(&state,&myGame,&mFont,inventaire,Doc,&savesate,&nNote,&code);
         if (myBool == 0 && state.g_bRunning ==1){
             MainScreen(&myGame,state);
             Mix_PlayMusic(myMusique, 1);
@@ -227,7 +227,7 @@ int main( int argc, char* args[]){
 //
 //Notes : X
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire[],Document doc[], int *savesate, int *nNote){
+void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire[],Document doc[], int *savesate, int *nNote,int code[]){
 
     FILE* save;
     save = NULL;
@@ -791,6 +791,12 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             if(((event.button.x > 738 ) && (event.button.x < 800))&& ((event.button.y > 153)&&(event.button.y <215))){
                 SDL_RenderClear(myGame->g_pRenderer);
                 state->g_bRunning = 11;
+                code[0]=0;
+                code[1]=0;
+                code[2]=0;
+                code[3]=0;
+            }
+            if(((event.button.x > 77 ) && (event.button.x < 205))&& ((event.button.y > 357)&&(event.button.y <442))){
                 code[0]=0;
                 code[1]=0;
                 code[2]=0;

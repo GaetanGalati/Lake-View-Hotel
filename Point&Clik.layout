@@ -2,9 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="Save&amp;load.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1694" topLine="19" />
+			<Cursor1 position="10119" topLine="267" />
 		</Cursor>
 	</File>
 	<File name="Destroy.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,66 +12,79 @@
 			<Cursor1 position="130" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Game.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Write.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="768" topLine="37" />
+			<Cursor1 position="2415" topLine="53" />
 		</Cursor>
 	</File>
 	<File name="Initialisation.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1343" topLine="18" />
+			<Cursor1 position="502" topLine="18" />
 		</Cursor>
 	</File>
-	<File name="Scene.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Save&amp;load.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="40500" topLine="141" />
+			<Cursor1 position="2530" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Scene.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2048" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="Scene.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="573" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="13" />
-			<Collapse line="72" />
-			<Collapse line="129" />
-			<Collapse line="184" />
-			<Collapse line="239" />
-			<Collapse line="294" />
-			<Collapse line="349" />
-			<Collapse line="404" />
-			<Collapse line="582" />
-			<Collapse line="640" />
-			<Collapse line="698" />
-			<Collapse line="756" />
-			<Collapse line="814" />
-			<Collapse line="872" />
-			<Collapse line="930" />
-			<Collapse line="988" />
-			<Collapse line="1046" />
-			<Collapse line="1104" />
-			<Collapse line="1162" />
-			<Collapse line="1220" />
+			<Collapse line="21" />
+			<Collapse line="80" />
+			<Collapse line="137" />
+			<Collapse line="192" />
+			<Collapse line="247" />
+			<Collapse line="302" />
+			<Collapse line="357" />
+			<Collapse line="412" />
+			<Collapse line="469" />
+			<Collapse line="590" />
+			<Collapse line="648" />
+			<Collapse line="706" />
+			<Collapse line="764" />
+			<Collapse line="822" />
+			<Collapse line="880" />
+			<Collapse line="938" />
+			<Collapse line="996" />
+			<Collapse line="1054" />
+			<Collapse line="1112" />
+			<Collapse line="1170" />
+			<Collapse line="1228" />
+			<Collapse line="1286" />
+			<Collapse line="1344" />
+			<Collapse line="1402" />
+			<Collapse line="1460" />
+			<Collapse line="1518" />
+			<Collapse line="1576" />
+			<Collapse line="1634" />
+			<Collapse line="1692" />
+			<Collapse line="1750" />
+			<Collapse line="1808" />
+			<Collapse line="1866" />
+			<Collapse line="1924" />
 		</Folding>
-	</File>
-	<File name="Save&amp;Load.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
 	</File>
 	<File name="destroy.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Scene.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+	<File name="Game.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1380" topLine="0" />
+			<Cursor1 position="768" topLine="37" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="Save&amp;Load.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="37387" topLine="764" />
-		</Cursor>
-	</File>
-	<File name="Write.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1581" topLine="56" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

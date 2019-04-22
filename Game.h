@@ -66,7 +66,7 @@ extern void SaveGame(FILE* save,gameState *state,game *myGame,Document Doc[], In
 extern void loadGame(FILE* save,gameState *state,game *myGame,Document Doc[], Inventory Inventaire[]);
 extern int init(char *title, int xpos,int ypos,int height, int width,int flags,game *myGame,font *mFont);
 extern int Text(game *myGame,font *mFont, char ctext[200]);
-extern void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire[],Document doc[], int *savesate,int *nNote);
+extern void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire[],Document doc[], int *savesate,int *nNote,int code[]);
 extern void writeSDL(game *myGame,font mFont);
 extern int Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize);
 
