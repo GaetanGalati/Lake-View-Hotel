@@ -64,6 +64,7 @@ int main( int argc, char* args[]){
 //    writeSDL(&myGame,mFont);
     myMusique = Mix_LoadMUS("./Assets/son/Silent Hill Promise Extended.wav");
 
+
     while(state.g_bRunning != 0){
         handleEvents(&state,&myGame,&mFont,inventaire,Doc,&savesate,&nNote,code);
         if (myBool == 0 && state.g_bRunning ==1){
@@ -487,7 +488,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                     Text(myGame,mFont,ctext);
                     SDL_Delay(1500);
                     SDL_RenderClear(myGame->g_pRenderer);
-                    //inventaire[1].lighter= true;
+
                 }
             if(((event.button.x > 8 ) && (event.button.x < 112))&& ((event.button.y > 367)&&(event.button.y <581))){
                     char ctext[] = "Une veille commode salle... Et vide";
@@ -728,7 +729,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
             }
 
             if(((event.button.x > 284 ) && (event.button.x < 460))&& ((event.button.y > 300)&&(event.button.y <430))){
-                    char ctext[] = "Je sors pour arrivé dans une ville envahie par la brume, je marche un moment et suis revenus sur mes pas !";
+                    char ctext[] = "Je marche ville envahie par la brume un moment mais suis revenus sur mes pas !";
                     Text(myGame,mFont,ctext);
                     SDL_Delay(2000);
                     SDL_RenderClear(myGame->g_pRenderer);
@@ -1079,7 +1080,7 @@ void handleEvents(gameState *state,game *myGame,font *mFont,Inventory inventaire
                 state->g_bRunning = 16;
             }
             if(((event.button.x > 390 ) && (event.button.x < 466))&& ((event.button.y > 350)&&(event.button.y <448))&& inventaire[1].gasoline == false){
-                    char ctext[] = "De l'essence... Quelquun voulait mettre le feu ?";
+                    char ctext[] = "De l'essence... Quelquun voulait mettre le feu ?";
                     inventaire[1].gasoline = true;
                     Text(myGame,mFont,ctext);
                     SDL_Delay(2000);

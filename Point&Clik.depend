@@ -386,7 +386,7 @@
 	<stdio.h>
 	"Game.h"
 
-1555925223 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\main.c
+1556046823 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\main.c
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>
@@ -421,7 +421,7 @@
 	"Scene.h"
 	"Destroy.h"
 
-1555885395 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\write.c
+1556043729 source:c:\users\utilisateur\desktop\codesdl\lake-view-hotel\write.c
 	<stdio.h>
 	<stdlib.h>
 	<SDL.h>

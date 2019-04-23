@@ -7,6 +7,7 @@
 #include <SDL_mixer.h>
 #include <stdio.h>
 #include "Game.h"
+#define TAILLE 20
 
 void writeSDL(game *myGame,font mFont) {
 
@@ -20,32 +21,31 @@ void writeSDL(game *myGame,font mFont) {
                 rectangle.h=0; //Hauteur
 
 
-                 myGame->g_texture = SDL_CreateTextureFromSurface(myGame->g_pRenderer,myGame->g_surface); // Préparation de la texture pour la chaine
-                // Libération de la ressource occupée par le sprite
+                 myGame->g_texture = SDL_CreateTextureFromSurface(myGame->g_pRenderer,myGame->g_surface); // PrÃ©paration de la texture pour la chaine
+                // LibÃ©ration de la ressource occupÃ©e par le sprite
                 if(!myGame->g_surface)
                     SDL_FreeSurface(myGame->g_surface);
 
 
                  if(myGame->g_texture){
 
-                        SDL_RenderCopy(myGame->g_pRenderer,myGame->g_texture,NULL,&rectangle); // Copie du sprite grâce au SDL_Renderer
+                        SDL_RenderCopy(myGame->g_pRenderer,myGame->g_texture,NULL,&rectangle); // Copie du sprite grÃ¢ce au SDL_Renderer
                         SDL_RenderPresent(myGame->g_pRenderer); // Affichage
                  }
                  else{
-                        fprintf(stdout,"Échec de création de la texture (%s)\n",SDL_GetError());
+                        fprintf(stdout,"Ã‰chec de crÃ©ation de la texture (%s)\n",SDL_GetError());
                 }
 
 
 
         }else{
-            fprintf(stdout,"Échec de creation surface pour chaine (%s)\n",SDL_GetError());
+            fprintf(stdout,"Ã‰chec de creation surface pour chaine (%s)\n",SDL_GetError());
         }
 
         //destroyTexture(myGame);
 
 
 }
-
 int Text(game *myGame,font *mFont, char ctext[])
 {
 
@@ -57,7 +57,7 @@ int Text(game *myGame,font *mFont, char ctext[])
         exit(EXIT_FAILURE);
     }
 
-    mFont->g_font=TTF_OpenFont("./Fonts/Matilda.ttf",10);
+    mFont->g_font=TTF_OpenFont("./Fonts/Matilda.ttf",TAILLE);
 
     if(!mFont->g_font) {
         printf("TTF_OpenFont: %s\n", TTF_GetError());
@@ -66,7 +66,7 @@ int Text(game *myGame,font *mFont, char ctext[])
     }
 
      SDL_Color fontColor={255,255,255};
-     myGame->g_surface=TTF_RenderText_Blended(mFont->g_font, ctext, fontColor);//Charge la police
+     myGame->g_surface=TTF_RenderUTF8_Solid(mFont->g_font, ctext, fontColor);//Charge la police
     SDL_Rect rectangle;
 
     rectangle.x=0;//debut x
@@ -74,20 +74,20 @@ int Text(game *myGame,font *mFont, char ctext[])
     rectangle.w=600; //Largeur
     rectangle.h=25; //Hauteur
 
-    myGame->g_texture = SDL_CreateTextureFromSurface(myGame->g_pRenderer,myGame->g_surface); // Préparation de la texture pour la chaine
+    myGame->g_texture = SDL_CreateTextureFromSurface(myGame->g_pRenderer,myGame->g_surface); // PrÃ©paration de la texture pour la chaine
+    SDL_QueryTexture(myGame->g_texture,NULL,NULL,&rectangle.w,&rectangle.h);//Resiz
     myGame->g_surface = IMG_Load("./Assets/main.png");
 
-    // Libération de la ressource occupée par le sprite
+    // LibÃ©ration de la ressource occupÃ©e par le sprite
     if(!myGame->g_surface)
         SDL_FreeSurface(myGame->g_surface);
 
 
     if(myGame->g_texture){
-        SDL_RenderCopy(myGame->g_pRenderer,myGame->g_texture,NULL,&rectangle); // Copie du sprite grâce au SDL_Renderer
+        SDL_RenderCopy(myGame->g_pRenderer,myGame->g_texture,NULL,&rectangle); // Copie du sprite grÃ¢ce au SDL_Renderer
         SDL_RenderPresent(myGame->g_pRenderer);
-                        //TODO out of memory sdl texture
-
-                 }
+    }
     return 1;
 
 }
+
